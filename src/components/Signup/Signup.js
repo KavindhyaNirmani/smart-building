@@ -43,7 +43,7 @@ function Signup() {
   return (
     <div className={styles.container}>
       <div className={styles.innerBox}>
-        <h1 className={styles.heading}>Signup</h1>
+        <h1 className={styles.heading}>Register</h1>
 
         <InputControl
           label="Name"
@@ -70,7 +70,7 @@ function Signup() {
         <div className={styles.footer}>
           <b className={styles.error}>{errorMsg}</b>
           <button onClick={handleSubmission} disabled={submitButtonDisabled}>
-            Signup
+            Register
           </button>
           <p>
             Already have an account?{" "}

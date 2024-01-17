@@ -5,13 +5,14 @@ function Home(props) {
   return (
     <div>
       <div>
-        <h1>
-          <Link to="/login">Login</Link>
+      <h1>
+          <Link to="/signup">Register</Link>
         </h1>
         <br />
         <h1>
-          <Link to="/signup">Signup</Link>
+          <Link to="/login">Login</Link>
         </h1>
+        
       </div>
 
       <br />
