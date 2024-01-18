@@ -1,0 +1,17 @@
+/* Home.css */
+
+.home-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .left-side img {
+    max-width: 100%;
+  }
+  
+  .right-side {
+    text-align: right;
+  }
+  
