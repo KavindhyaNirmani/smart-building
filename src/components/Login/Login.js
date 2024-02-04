@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-
+import img from "../assest/login.png"; // Assuming the image is in the same directory as this component
 import InputControl from "../InputControl/InputControl";
 import { auth } from "../../firebase";
 
@@ -27,16 +27,26 @@ function Login() {
     signInWithEmailAndPassword(auth, values.email, values.pass)
       .then(async (res) => {
         setSubmitButtonDisabled(false);
-        
-        navigate("/");
+        navigate("/Admin"); // Redirect to AdminPage1 after successful login
       })
       .catch((err) => {
         setSubmitButtonDisabled(false);
         setErrorMsg(err.message);
       });
+      
   };
+
+  
   return (
+    <div className="admin-page">
+      <header className="header"> </header>
+    
+    
     <div className={styles.container}>
+      <div> {/* Add this div for the image */}
+      <img src={img}  className="login-image"/>
+    </div>
+
       <div className={styles.innerBox}>
         <h1 className={styles.heading}>Login</h1>
 
@@ -60,14 +70,23 @@ function Login() {
           <button disabled={submitButtonDisabled} onClick={handleSubmission}>
             Login
           </button>
-          <p>
-            Already have an account?{" "}
+          <p className={styles.forgetPassword}>
             <span>
-              <Link to="/signup">Register</Link>
+              <Link to="/signup">Foget Password </Link>
             </span>
           </p>
         </div>
+
       </div>
+      
+    </div>
+    
+    
+    
+    <footer className="footer1">
+        <p>Footer content goes here.</p>
+      </footer>
+    
     </div>
   );
 }

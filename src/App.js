@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import Home from "./components/Home/Home";
-import Login from "./components/Login/Login";
-import Signup from "./components/Signup/Signup";
-
+import Login from "./components/Login/Login.js";
 import { auth } from "./firebase";
-
 import "./App.css";
+import AdminPage1 from "./components/AdminPage1/AdminPage1";
+import RealAdmin from "./components/RealAdmin/RealAdmin.js";
+import LoadingPage from "./components/LoadingPage/loadingpage.js";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -24,9 +22,13 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
+          {/* Make Login the default page by rendering it when the path is / */}
+          <Route path="/" element={<LoadingPage />} />
+          <Route path="/admin" element={<AdminPage1 />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/" element={<Home name={userName} />} />
+          <Route path="/realAdmin" element={<RealAdmin />} />
+          
+          
         </Routes>
       </Router>
     </div>
