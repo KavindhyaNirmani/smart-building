@@ -43,11 +43,11 @@ function Login() {
     
     
     <div className={styles.container}>
-      <div> {/* Add this div for the image */}
-      <img src={img}  className="login-image"/>
-    </div>
-
-      <div className={styles.innerBox}>
+    <div> {/* Add this div for the image */}
+      <img src={img}  className={styles.loginimage}/>
+      </div>
+    
+       <div className={styles.innerBox}>
         <h1 className={styles.heading}>Login</h1>
 
         <InputControl
@@ -76,19 +76,14 @@ function Login() {
             </span>
           </p>
         </div>
-
-      </div>
-      
+    </div>
     </div>
     
-    
-    
-    <footer className="footer1">
-        <p>Footer content goes here.</p>
-      </footer>
-    
-    </div>
+    <footer className= {styles.footer1}>
+    <p>Footer content goes here.</p>
+  </footer>
+  </div>
   );
-}
+};
 
 export default Login;

@@ -6,6 +6,7 @@ import "./App.css";
 import AdminPage1 from "./components/AdminPage1/AdminPage1";
 import RealAdmin from "./components/RealAdmin/RealAdmin.js";
 import LoadingPage from "./components/LoadingPage/loadingpage.js";
+import InputControl from "./components/InputControl/InputControl.js";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -27,6 +28,7 @@ function App() {
           <Route path="/admin" element={<AdminPage1 />} />
           <Route path="/login" element={<Login />} />
           <Route path="/realAdmin" element={<RealAdmin />} />
+          <Route path="/inputcontrol" element={<InputControl />} />
           
           
         </Routes>

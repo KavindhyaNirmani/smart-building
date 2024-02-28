@@ -14,7 +14,7 @@ const AdminPage1 = () => {
   return (
     <div className="admin-page">
       <header className="header">
-        <h1>Admin Page 1</h1>
+        
       </header>
       <div >
         <img src={logo} className="logo" alt="Company Logo" />
@@ -22,10 +22,18 @@ const AdminPage1 = () => {
       </div>
       <button className="logout-button" onClick={handleLogout}>Logout</button>
       <div className="content">
-        <div className="box">
-          <p> <b>Click here for all sector selection</b> </p>
-          <div><button className='button'>Sector Selection</button></div>
-        </div>
+
+      <div className="box1">
+        <p> <b>Click here for all sector selection
+               detais and previous generator reports</b> </p>
+        <div><button className='button'>   User  </button></div>
+      </div>
+
+      <div className= "box2">
+        <p> <b>Click here for view power usage reports</b> </p>
+        <div><button className='button'>Power Usage</button></div>
+      </div>
+
       </div>
       <footer className="footer">
         <p>Footer content goes here.</p>
