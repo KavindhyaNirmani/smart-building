@@ -23,13 +23,13 @@ const AdminPage1 = () => {
       <button className="logout-button" onClick={handleLogout}>Logout</button>
       <div className="content">
 
-      <div className="box1">
+      <div className="box11">
         <p> <b>Click here for all sector selection
                detais and previous generator reports</b> </p>
         <div><button className='button'>   User  </button></div>
       </div>
 
-      <div className= "box2">
+      <div className= "box22">
         <p> <b>Click here for view power usage reports</b> </p>
         <div><button className='button'>Power Usage</button></div>
       </div>

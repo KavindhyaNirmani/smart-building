@@ -7,6 +7,7 @@ import AdminPage1 from "./components/AdminPage1/AdminPage1";
 import RealAdmin from "./components/RealAdmin/RealAdmin.js";
 import LoadingPage from "./components/LoadingPage/loadingpage.js";
 import InputControl from "./components/InputControl/InputControl.js";
+import DashBoard from "./components/Dashboard/DashBoard.js";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -25,10 +26,12 @@ function App() {
         <Routes>
           {/* Make Login the default page by rendering it when the path is / */}
           <Route path="/" element={<LoadingPage />} />
+          <Route path="/loadingpage" element={<LoadingPage />} />
           <Route path="/admin" element={<AdminPage1 />} />
           <Route path="/login" element={<Login />} />
           <Route path="/realAdmin" element={<RealAdmin />} />
           <Route path="/inputcontrol" element={<InputControl />} />
+          <Route path="/dashboard" element={<DashBoard />} />
           
           
         </Routes>
