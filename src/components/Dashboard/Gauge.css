@@ -6,6 +6,7 @@
   
   .gauge {
     position: relative;
+    align-items: center;
     width: 150px;
     height: 150px;
     border-radius: 50%;

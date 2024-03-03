@@ -9,7 +9,6 @@ const DashBoard = () => {
   return (
     <div className="dashboard">
       <header className="header3">
-        <h1>DashBoard</h1>
       </header>
 
       <div className="box">
@@ -17,29 +16,34 @@ const DashBoard = () => {
           <div className="box_1">
             <div className="inner-box1"></div>
             <div className="small-boxes">
-              {[...Array(12)].map((_, index) => (
+              {[...Array(10)].map((_, index) => (
                 <div key={index} className="small-box">
-                  <img src={bulb1} className="bulb" alt="" />
+                  <img src={bulb1} className="bulb" alt="" />  
                 </div>
               ))}
+
+              <div className="small-box"><h1>+</h1></div>
+              <div className="small-box"><h1>-</h1></div>
             </div>
+            <div className='inner-box5'></div>
           </div>
 
           {/* Insert the Gauge component here */}
-          <Gauge />
+           <div className='inner-box3'>
+           <div className="inner-box4" >
+           <Gauge /> 
+           </div>
+           </div>
+           <div className="inner-box7" ></div>
           
-          <div className="box_3">
-          <div className="box_4">
-          <div className="box_5"></div>
-          </div>
-          </div>
           <div className="box_2">
             <div className="inner-box2"></div>
             <div className="small-boxes2">
               {[...Array(2)].map((_, index) => (
                 <div key={index} className="small-box2"></div>
               ))}
-            </div>  
+            </div> 
+            <div className='inner-box6'></div> 
           </div>
         </div>
       </div>
