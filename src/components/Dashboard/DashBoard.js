@@ -14,10 +14,15 @@ const DashBoard = () => {
       <div className="box">
         <div className="content">
           <div className="box_1">
-            <div className="inner-box1"></div>
+            <div className="inner-box1">
+              <div className="inner-box11">
+                
+              </div>
+            </div>
             <div className="small-boxes">
               {[...Array(10)].map((_, index) => (
                 <div key={index} className="small-box">
+                <div className="box_3"></div>
                   <img src={bulb1} className="bulb" alt="" />  
                 </div>
               ))}
@@ -34,8 +39,7 @@ const DashBoard = () => {
            <Gauge /> 
            </div>
            </div>
-           <div className="inner-box7" ></div>
-          
+           
           <div className="box_2">
             <div className="inner-box2"></div>
             <div className="small-boxes2">
@@ -46,8 +50,10 @@ const DashBoard = () => {
             <div className='inner-box6'></div> 
           </div>
         </div>
+        <div className='box_7'></div>
       </div>
-
+      {/* Adding small box_7 */}
+      
       <footer className="footer">
         <p>Footer content goes here.</p>
       </footer>
