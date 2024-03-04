@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './RealAdmin.css';
 import logo from '../assest/logo.png';
 import profileIcon from '../assest/profile.png';
- // Import CSS for styling
+import documentIcon from '../assest/DI2.png';
 
 
 const RealAdmin = () => {
@@ -28,19 +28,22 @@ const RealAdmin = () => {
     <div className="content">
 
       <div className="box1">
+      <img src={documentIcon} className='dlogo' alt='' />
         <p> <b>Click here for all sector selection
                detais and previous generator reports</b> </p>
         <div><button className='button'>User</button></div>
       </div>
 
       <div className="box2">
+      <img src={documentIcon} className='dlogo' alt='' />
         <p> <b>Click here for view power usage reports</b> </p>
         <div><button className='button'>Power Usage</button></div>
       </div>
 
       <div className="box3">
-        <p> <b>Click here for view power usage reports</b> </p>
-        <div><button className='button'>Power Usage</button></div>
+      <img src={documentIcon} className='dlogo' alt='' />
+        <p> <b>Click here for all sector related operations</b> </p>
+        <div><button className='button'>Sectors</button></div>
       </div>
 
     </div>

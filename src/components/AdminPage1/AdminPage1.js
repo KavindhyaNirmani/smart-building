@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './AdminPage1.css'; // Import CSS for styling
 import logo from '../assest/logo.png';
 import profileIcon from '../assest/profile.png';
+import documentIcon from '../assest/DI2.png';
 
 const AdminPage1 = () => {
   const navigate = useNavigate();
@@ -24,12 +25,14 @@ const AdminPage1 = () => {
       <div className="content">
 
       <div className="box11">
+       <img src={documentIcon} className='dlogo' alt='' />
         <p> <b>Click here for all sector selection
                detais and previous generator reports</b> </p>
         <div><button className='button'>   User  </button></div>
       </div>
 
       <div className= "box22">
+      <img src={documentIcon} className='dlogo' alt='' />
         <p> <b>Click here for view power usage reports</b> </p>
         <div><button className='button'>Power Usage</button></div>
       </div>
