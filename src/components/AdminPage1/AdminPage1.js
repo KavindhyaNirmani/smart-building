@@ -9,34 +9,38 @@ const AdminPage1 = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    // Navigate to the login page when "Logout" button is clicked
     navigate('/login');
+  };
+
+  const handlePowerUsage = () => {
+    // Navigate to the Dashboard page when "Power Usage" button is clicked
+    navigate('/dashboard');
   };
 
   return (
     <div className="admin-page">
-      <header className="header">
-        
-      </header>
-      <div >
+      <header className="header"></header>
+      <div>
         <img src={logo} className="logo" alt="Company Logo" />
         <img src={profileIcon} className="profile-icon" alt="Profile Icon" />
       </div>
-      <button className="logout-button" onClick={handleLogout}>Logout</button>
+      <div>
+        
+          <button className='logout-button' onClick={handleLogout}>Logout</button>
+        
+      </div>
       <div className="content">
-
-      <div className="box11">
-       <img src={documentIcon} className='dlogo' alt='' />
-        <p> <b>Click here for all sector selection
-               detais and previous generator reports</b> </p>
-        <div><button className='button'>   User  </button></div>
-      </div>
-
-      <div className= "box22">
-      <img src={documentIcon} className='dlogo' alt='' />
-        <p> <b>Click here for view power usage reports</b> </p>
-        <div><button className='button'>Power Usage</button></div>
-      </div>
-
+        <div className="box11">
+          <img src={documentIcon} className='dlogo' alt='' />
+          <p><b>Click here for all sector selection details and previous generator reports</b></p>
+          <div><button className='button'>User</button></div>
+        </div>
+        <div className="box22">
+          <img src={documentIcon} className='dlogo' alt='' />
+          <p><b>Click here for view power usage reports</b></p>
+          <div><button className='button' onClick={handlePowerUsage}>Power Usage</button></div>
+        </div>
       </div>
       <footer className="footer">
         <p>Footer content goes here.</p>
