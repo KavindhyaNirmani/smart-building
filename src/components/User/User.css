@@ -1,0 +1,40 @@
+/* User.css */
+
+.user-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .user-table th,
+  .user-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .user-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .user-input {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  .user-btn {
+    padding: 6px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  
+  .user-btn:last-child {
+    margin-right: 0;
+  }
+  
