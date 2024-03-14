@@ -9,7 +9,7 @@ import LoadingPage from "./components/LoadingPage/loadingpage.js";
 import InputControl from "./components/InputControl/InputControl.js";
 import DashBoard from "./components/Dashboard/DashBoard.js";
 import User from "./components/User/User.js";
-
+import UserTable from "./components/UserTable/UserTable.js";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -35,7 +35,7 @@ function App() {
           <Route path="/inputcontrol" element={<InputControl />} />
           <Route path="/dashboard" element={<DashBoard />} />
           <Route path="/user" element={<User />} />
-          
+          <Route path="/UserTable" element={<UserTable />} />
         </Routes>
       </Router>
     </div>

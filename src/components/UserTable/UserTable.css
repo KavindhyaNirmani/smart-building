@@ -1,0 +1,86 @@
+.usertable {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  .header {
+    background-color: #008B8B;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footer {
+    background-color: #008B8B;
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+  }
+  .profile-icon {
+    width: 50px; /* Set the width of the profile icon */
+    height: 50px; /* Maintain aspect ratio */
+    position: absolute; /* Position the profile icon */
+    top: 100px; /* Adjust the top position as needed */
+    right: 140px; /* Adjust the left position to position it in front of the logout button */
+    padding-bottom: 5px;
+  }
+
+  .logout-button {
+  background-color: #365ff4; 
+  color: #fff;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  border-color: #365ff4;
+  margin-right: 20px;/* Add some space between the button and the right edge */
+  top: 100px;
+  right: 20px;
+  position: absolute;
+}
+  .logo{
+    width: 200px;
+    height:50px;
+    position: absolute;
+    top: 100px;
+    left: 20px; 
+  }
+  
+
+  .box11 button {
+    background-color: #365ff4;
+    height: 40px;
+    width: 150px;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 15px 30px; /* Increased padding for larger button */
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    
+    
+  }
+  
+
+.box22 button {
+  background-color: #365ff4;
+  height: 40px;
+  width: 150px;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer; 
+}
+
