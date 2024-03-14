@@ -46,14 +46,17 @@
   margin-left: 200px;
 }
 button {
-  align-items: flex-start;
-  width: 100px;
-  height: 40px;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
   border: none;
   background-color: #008b8b;
   color: #fff;
   border-radius: 5px;
   position: absolute;
+  font-weight: normal;
+  font-size: medium;
 }
 .middle {
   width: 100%;
@@ -107,4 +110,7 @@ td {
   padding: 10px;
   align-items: left;
   margin-left: 100px;
+}
+.back {
+  cursor: pointer;
 }

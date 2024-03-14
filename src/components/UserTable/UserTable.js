@@ -2,6 +2,8 @@ import React from "react";
 import "./UserTable.css";
 import logo from "../assest/logo.png";
 import profileIcon from "../assest/profile.png";
+import { FaCirclePlus } from "react-icons/fa6";
+import { MdKeyboardArrowLeft } from "react-icons/md";
 
 const UserTable = () => {
   return (
@@ -20,7 +22,9 @@ const UserTable = () => {
       {/* Content goese here */}
       <div className="content">
         <div className="top">
-          <button type="button">Add User </button>
+          <button type="button">
+            Add User <FaCirclePlus />{" "}
+          </button>
         </div>
         <div className="middle">
           <table>
@@ -49,7 +53,8 @@ const UserTable = () => {
           </table>
         </div>
         <div className="end">
-          <p>back</p>
+          <MdKeyboardArrowLeft />
+          <p className="back">back</p>
         </div>
       </div>
       {/* Footer */}
