@@ -1,86 +1,110 @@
 .usertable {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    position: relative;
-  }
-  
-  .header {
-    background-color: #008B8B;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .footer {
-    background-color: #008B8B;
-    color: #fff;
-    padding: 30px;
-    text-align: center;
-  }
-  .profile-icon {
-    width: 50px; /* Set the width of the profile icon */
-    height: 50px; /* Maintain aspect ratio */
-    position: absolute; /* Position the profile icon */
-    top: 100px; /* Adjust the top position as needed */
-    right: 140px; /* Adjust the left position to position it in front of the logout button */
-    padding-bottom: 5px;
-  }
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+}
 
-  .logout-button {
-  background-color: #365ff4; 
+.header {
+  background-color: #008b8b;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+.logo {
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  top: 60px;
+  left: 20px;
+}
+.profile-icon {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 60px;
+  right: 140px;
+  padding-bottom: 5px;
+}
+.header-content {
+  width: 100%;
+  height: 100px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: left;
+  padding: 10px;
+  align-items: left;
+  margin-left: 200px;
+}
+button {
+  align-items: flex-start;
+  width: 100px;
+  height: 40px;
+  border: none;
+  background-color: #008b8b;
+  color: #fff;
+  border-radius: 5px;
+  position: absolute;
+}
+.middle {
+  width: 100%;
+}
+table {
+  margin: 50px;
+  width: 80%;
+  height: 300px;
+  border: none;
+  border-collapse: collapse;
+  border: 1px solid grey;
+}
+th {
+  background-color: #008b8b;
+  color: #fff;
+  height: 40px;
+  font-weight: lighter;
+  border-collapse: collapse;
+  border: 0.8px solid white;
+}
+td {
+  height: 40px;
+  text-align: center;
+  border: 0.8px solid grey;
+  border-collapse: collapse;
+}
+.footer {
+  background-color: #008b8b;
+  color: #fff;
+  padding: 30px;
+  text-align: center;
+}
+.logout-button {
+  background-color: #365ff4;
   color: #fff;
   width: 100px;
   height: 40px;
   border-radius: 10px;
   border-color: #365ff4;
-  margin-right: 20px;/* Add some space between the button and the right edge */
-  top: 100px;
+  margin-right: 20px;
+  top: 60px;
   right: 20px;
   position: absolute;
 }
-  .logo{
-    width: 200px;
-    height:50px;
-    position: absolute;
-    top: 100px;
-    left: 20px; 
-  }
-  
 
-  .box11 button {
-    background-color: #365ff4;
-    height: 40px;
-    width: 150px;
-    color: #fff;
-    border: none;
-    border-radius: 15px;
-    padding: 15px 30px; /* Increased padding for larger button */
-    font-size: 16px;
-    margin-top: 10px;
-    cursor: pointer;
-    
-    
-  }
-  
-
-.box22 button {
-  background-color: #365ff4;
-  height: 40px;
-  width: 150px;
-  color: #fff;
-  border: none;
-  border-radius: 15px;
-  padding: 10px 20px;
-  font-size: 16px;
-  margin-top: 20px;
-  cursor: pointer; 
+.end {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: left;
+  padding: 10px;
+  align-items: left;
+  margin-left: 100px;
 }
-
