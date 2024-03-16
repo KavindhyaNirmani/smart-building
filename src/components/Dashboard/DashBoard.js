@@ -1,42 +1,66 @@
 import React, { useEffect, useState } from 'react';
 import './DashBoard.css';
-import Bulb from './bulb'; // Correct the import path for Bulb component
-import Gauge from './Gauge'; // Correct the import path for Gauge component
-import fan1 from '../assest/fan2.png'; // Correct the import path for fan1 image
 import firebase from 'firebase/compat/app'; // Correct the import statement for Firebase
 import 'firebase/compat/database'; // Import Firebase database module
-import Fan from './Fan'; // Import the Fan component
+import Bulb from './bulb'; // Import the Bulb component
+import Gauge from './Gauge'; // Import the Gauge component
+import fan1 from '../assest/fan2.png'; // Correct the import path for fan1 image
 
 const DashBoard = () => {
-  const { fans, toggleFan, fan1Color, fan2Color } = Fan(); // Use the Fan component
-
-  // Initialize the state for the bulbs
+  // Initialize the state for the bulbs, fans, and fan switch colors
   const [bulbs, setBulbs] = useState([]);
+  const [fans, setFans] = useState([]);
+  const [fan1Color, setFan1Color] = useState('white'); // State for fan 01 switch color
+  const [fan2Color, setFan2Color] = useState('white'); // State for fan 02 switch color
 
-  // Fetch initial bulb states from Firebase Realtime Database
   useEffect(() => {
+    // Initialize fan variables in the Realtime Database when the component mounts
+    firebase.database().ref('fans').set({
+      fan1: { status: false },
+      fan2: { status: false },
+    });
+
+    // Fetch initial bulb and fan states from Firebase Realtime Database
     const bulbsRef = firebase.database().ref('bulbs');
     bulbsRef.on('value', (snapshot) => {
       const bulbsData = snapshot.val();
       if (bulbsData) {
         const bulbsArray = Object.values(bulbsData);
-        const mappedBulbs = bulbsArray.map((bulb, index) => ({
-          id: index + 1,
-          status: bulb.status,
-        }));
-        setBulbs(mappedBulbs);
+        setBulbs(bulbsArray);
       }
     });
 
-    // Cleanup function
-    return () => bulbsRef.off();
+    const fansRef = firebase.database().ref('fans');
+    fansRef.on('value', (snapshot) => {
+      const fansData = snapshot.val();
+      if (fansData) {
+        const fansArray = Object.values(fansData);
+        setFans(fansArray);
+      }
+    });
+
+    return () => {
+      bulbsRef.off();
+      fansRef.off();
+    };
   }, []);
 
-  // Function to toggle the status of a specific bulb
   const toggleBulb = (id) => {
-    const bulbRef = firebase.database().ref(`bulbs/${id - 1}`); // Adjust for 0-based index
-    const updatedStatus = !bulbs.find((bulb) => bulb.id === id).status;
+    const bulbRef = firebase.database().ref(`bulbs/${id - 1}`);
+    const updatedStatus = !bulbs[id - 1].status;
     bulbRef.update({ status: updatedStatus });
+  };
+
+  const toggleFan = (id) => {
+    const fanRef = firebase.database().ref(`fans/fan${id}`);
+    const updatedStatus = !fans[id - 1].status;
+    fanRef.update({ status: updatedStatus });
+
+    if (id === 1) {
+      setFan1Color(updatedStatus ? 'green' : 'red');
+    } else if (id === 2) {
+      setFan2Color(updatedStatus ? 'green' : 'red');
+    }
   };
 
   return (
