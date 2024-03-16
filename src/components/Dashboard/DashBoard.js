@@ -2,16 +2,22 @@ import React, { useEffect, useState } from 'react';
 import './DashBoard.css';
 import firebase from 'firebase/compat/app'; // Correct the import statement for Firebase
 import 'firebase/compat/database'; // Import Firebase database module
+import 'firebase/compat/auth'; // Import Firebase authentication module
 import Bulb from './bulb'; // Import the Bulb component
 import Gauge from './Gauge'; // Import the Gauge component
 import fan1 from '../assest/fan2.png'; // Correct the import path for fan1 image
 
 const DashBoard = () => {
+
+  const dummyValue = 30; 
   // Initialize the state for the bulbs, fans, and fan switch colors
   const [bulbs, setBulbs] = useState([]);
   const [fans, setFans] = useState([]);
   const [fan1Color, setFan1Color] = useState('white'); // State for fan 01 switch color
   const [fan2Color, setFan2Color] = useState('white'); // State for fan 02 switch color
+  const [user, setUser] = useState(null); // State to track logged-in user
+  const [dateTime, setDateTime] = useState(new Date().toLocaleString()); // State for current date/time
+  const [temperature, setTemperature] = useState(null); // State for current temperature
 
   useEffect(() => {
     // Initialize fan variables in the Realtime Database when the component mounts
@@ -39,9 +45,30 @@ const DashBoard = () => {
       }
     });
 
+    // Set up listener for user authentication state changes
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user.email);
+      } else {
+        setUser(null);
+      }
+    });
+
+    // Update date/time every second
+    const interval = setInterval(() => {
+      setDateTime(new Date().toLocaleString());
+    }, 1000);
+
+    // Fetch current temperature (replace API_KEY with your actual API key)
+    fetch(`https://api.weatherapi.com/v1/current.json?key=API_KEY&q=your_location`)
+      .then((response) => response.json())
+      .then((data) => setTemperature(data.current.temp_c))
+      .catch((error) => console.error('Error fetching temperature:', error));
+
     return () => {
       bulbsRef.off();
       fansRef.off();
+      clearInterval(interval);
     };
   }, []);
 
@@ -96,7 +123,7 @@ const DashBoard = () => {
           {/* Insert the Gauge component here */}
           <div className='inner-box3'>
             <div className="inner-box4">
-              <Gauge />
+            <Gauge value={dummyValue} />
             </div>
           </div>
 
@@ -155,10 +182,15 @@ const DashBoard = () => {
                 </div>
               </div>
             </div>
-            <div className='inner-box6'></div>
+            <div className='inner-box6'>
+            <p>Current Temperature: {temperature !== null ? `${temperature} °C` : 'Loading...'}</p>
+          </div>
           </div>
         </div>
-        <div className='box_7'></div>
+        <div className='box_7'>
+            <p>{user ? `Logged in as: ${user}` : 'Not logged in'}</p>
+            <p>{dateTime}</p>
+          </div>
       </div>
 
       <footer className="footer">
