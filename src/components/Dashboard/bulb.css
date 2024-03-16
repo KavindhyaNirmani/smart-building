@@ -1,0 +1,17 @@
+/* Bulb.css */
+.bulb {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .bulb.on {
+    background-color: yellow; /* On color */
+  }
+  
+  .bulb.off {
+    background-color: gray; /* Off color */
+  }
+  

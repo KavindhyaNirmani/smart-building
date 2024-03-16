@@ -8,7 +8,7 @@ import RealAdmin from "./components/RealAdmin/RealAdmin.js";
 import LoadingPage from "./components/LoadingPage/loadingpage.js";
 import InputControl from "./components/InputControl/InputControl.js";
 import DashBoard from "./components/Dashboard/DashBoard.js";
-import User from "./components/User/User.js";
+
 
 
 function App() {
@@ -34,12 +34,14 @@ function App() {
           <Route path="/realAdmin" element={<RealAdmin />} />
           <Route path="/inputcontrol" element={<InputControl />} />
           <Route path="/dashboard" element={<DashBoard />} />
-          <Route path="/user" element={<User />} />
+          
+        
           
         </Routes>
       </Router>
     </div>
   );
 }
+
 
 export default App;
