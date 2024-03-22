@@ -1,13 +1,4 @@
-/*************************************************************
-  This is the code for All in one Home Automation project using Firbase Database by techiesms.
 
-  techiesms YouTube Channel - https://www.youtube.com/techiesms
-
-          techiesms
-    explore | learn | share
-
-
- *************************************************************/
 
 #define DEBUG_SW 0 // Make it 1 to see all debug messages in Serial Monitor
 
