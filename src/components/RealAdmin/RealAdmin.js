@@ -21,7 +21,7 @@ const RealAdmin = () => {
 
     <div className="admin-page">
     <header className="header">
-      <h1>real admin page</h1>
+      <h1>Real Admin page</h1>
     </header>
     <div >
         <img src={logo} className="logo" alt="Company Logo" />

@@ -1,32 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import './DashBoard.css';
-import firebase from 'firebase/compat/app'; // Correct the import statement for Firebase
-import 'firebase/compat/database'; // Import Firebase database module
-import 'firebase/compat/auth'; // Import Firebase authentication module
-import Bulb from './bulb'; // Import the Bulb component
-import Gauge from './Gauge'; // Import the Gauge component
-import fan1 from '../assest/fan2.png'; // Correct the import path for fan1 image
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/database';
+import 'firebase/compat/auth';
+import Bulb from './bulb';
+import Gauge from './Gauge';
+import fan1 from '../assest/fan2.png';
 
 const DashBoard = () => {
-
-  const dummyValue = 30; 
-  // Initialize the state for the bulbs, fans, and fan switch colors
+  const dummyValue = 30;
   const [bulbs, setBulbs] = useState([]);
   const [fans, setFans] = useState([]);
-  const [fan1Color, setFan1Color] = useState('white'); // State for fan 01 switch color
-  const [fan2Color, setFan2Color] = useState('white'); // State for fan 02 switch color
-  const [user, setUser] = useState(null); // State to track logged-in user
-  const [dateTime, setDateTime] = useState(new Date().toLocaleString()); // State for current date/time
-  const [temperature, setTemperature] = useState(null); // State for current temperature
+  const [fan1Color, setFan1Color] = useState('white');
+  const [fan2Color, setFan2Color] = useState('white');
+  const [fan1Speed, setFan1Speed] = useState(null);
+  const [fan2Speed, setFan2Speed] = useState(null);
+  const [user, setUser] = useState(null);
+  const [dateTime, setDateTime] = useState(new Date().toLocaleString());
+  const [temperature, setTemperature] = useState(null);
 
   useEffect(() => {
-    // Initialize fan variables in the Realtime Database when the component mounts
     firebase.database().ref('fans').set({
-      fan1: { status: false },
-      fan2: { status: false },
+      fan1: { status: false, speed: null },
+      fan2: { status: false, speed: null },
     });
 
-    // Fetch initial bulb and fan states from Firebase Realtime Database
     const bulbsRef = firebase.database().ref('bulbs');
     bulbsRef.on('value', (snapshot) => {
       const bulbsData = snapshot.val();
@@ -42,10 +40,11 @@ const DashBoard = () => {
       if (fansData) {
         const fansArray = Object.values(fansData);
         setFans(fansArray);
+        setFan1Speed(fansArray[0].speed);
+        setFan2Speed(fansArray[1].speed);
       }
     });
 
-    // Set up listener for user authentication state changes
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         setUser(user.email);
@@ -54,12 +53,10 @@ const DashBoard = () => {
       }
     });
 
-    // Update date/time every second
     const interval = setInterval(() => {
       setDateTime(new Date().toLocaleString());
     }, 1000);
 
-    // Fetch current temperature (replace API_KEY with your actual API key)
     fetch(`https://api.weatherapi.com/v1/current.json?key=API_KEY&q=your_location`)
       .then((response) => response.json())
       .then((data) => setTemperature(data.current.temp_c))
@@ -87,6 +84,16 @@ const DashBoard = () => {
       setFan1Color(updatedStatus ? 'green' : 'red');
     } else if (id === 2) {
       setFan2Color(updatedStatus ? 'green' : 'red');
+    }
+  };
+
+  const updateFanSpeed = (fanId, speed) => {
+    const fanRef = firebase.database().ref(`fans/fan${fanId}`);
+    fanRef.update({ speed: speed });
+    if (fanId === 1) {
+      setFan1Speed(speed);
+    } else if (fanId === 2) {
+      setFan2Speed(speed);
     }
   };
 
@@ -158,28 +165,44 @@ const DashBoard = () => {
             </div>
             <div className="small-boxes2">
               <div className="small-box2_1">
-                <div className='small-box2_11'>
-                  <img src={fan1} className="fan" alt="" />
-                </div>
-                <div className='small-box2_22'>
-                  <div className='fan_+'><h1>+</h1></div>
-                </div>
-                <div className='small-box2_33'></div>
-                <div className='small-box2_44'>
-                  <div className='fan_-'><h1>-</h1></div>
-                </div>
+                <button
+                  className={`toggle-switch ${fan1Speed === 1 ? 'active' : ''}`}
+                  onClick={() => updateFanSpeed(1, 1)}
+                >
+                  Speed 1
+                </button>
+                <button
+                  className={`toggle-switch ${fan1Speed === 2 ? 'active' : ''}`}
+                  onClick={() => updateFanSpeed(1, 2)}
+                >
+                  Speed 2
+                </button>
+                <button
+                  className={`toggle-switch ${fan1Speed === 3 ? 'active' : ''}`}
+                  onClick={() => updateFanSpeed(1, 3)}
+                >
+                  Speed 3
+                </button>
               </div>
               <div className="small-box2_2">
-                <div className='small-box2_11'>
-                  <img src={fan1} className="fan" alt="" />
-                </div>
-                <div className='small-box2_22'>
-                  <div className='fan_+'><h1>+</h1></div>
-                </div>
-                <div className='small-box2_33'></div>
-                <div className='small-box2_44'>
-                  <div className='fan_-'><h1>-</h1></div>
-                </div>
+                <button
+                  className={`toggle-switch ${fan2Speed === 1 ? 'active' : ''}`}
+                  onClick={() => updateFanSpeed(2, 1)}
+                >
+                  Speed 1
+                </button>
+                <button
+                  className={`toggle-switch ${fan2Speed === 2 ? 'active' : ''}`}
+                  onClick={() => updateFanSpeed(2, 2)}
+                >
+                  Speed 2
+                </button>
+                <button
+                  className={`toggle-switch ${fan2Speed === 3 ? 'active' : ''}`}
+                  onClick={() => updateFanSpeed(2, 3)}
+                >
+                  Speed 3
+                </button>
               </div>
             </div>
             <div className='inner-box6'>
@@ -192,7 +215,7 @@ const DashBoard = () => {
             <p>{dateTime}</p>
           </div>
       </div>
-
+      
       <footer className="footer">
         <p>Footer content goes here.</p>
       </footer>
