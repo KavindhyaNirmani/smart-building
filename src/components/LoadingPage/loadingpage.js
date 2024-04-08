@@ -23,7 +23,7 @@ const LoadingPage = () => {
       </div>
 
       <footer className="footer">
-        <p>Footer content goes here.</p>
+        <p className='footer11'>SMART X INDUSTRIES </p>
       </footer>
     </div>
   );

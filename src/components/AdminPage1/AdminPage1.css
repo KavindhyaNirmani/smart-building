@@ -56,10 +56,18 @@
   
   .footer {
     background-color: #008B8B;
-    color: #fff;
     padding: 30px;
     text-align: center;
   }
+
+  .footer11{
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 25px;
+  }
+
+  
   .profile-icon {
     width: 50px; /* Set the width of the profile icon */
     height: 50px; /* Maintain aspect ratio */

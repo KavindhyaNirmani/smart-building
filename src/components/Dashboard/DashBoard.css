@@ -8,7 +8,7 @@
 .header3 {
   background-color: #008B8B;
   color: #fff;
-  padding: 10px;
+  padding: 15px;
   text-align: center;
 }
 
@@ -130,12 +130,55 @@ color:#ccc
   border-radius: 15px;
 }
 
+/*fan control button*/
+.small-boxes2 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.toggle-switch {
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px; /* Added space between buttons */
+}
+
+.toggle-switch.active {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.toggle-switch:nth-child(2):active,
+.toggle-switch:nth-child(3):active {
+  background-color: #2196f3; /* Different color for clicked buttons */
+}
+
+.toggle-switch:hover {
+  background-color: #ccc;
+}
+/*fan control button*/
 .small-boxes2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-right: 150px;
-  
+  margin-right: 100px; 
+}
+
+.toggle-switch{
+  margin: 5px;
+  width: 60px;
+  height: 50px;
+  background-color: gray;
+  border-radius: 15px;
+}
+
+.speedl{
+  font-size: 15px;
+  text-align: center;
 }
 
 .small-box2_1 {
@@ -216,6 +259,12 @@ margin-top: 20px;
   margin-right: 15px;
 }
 
+.fan-image{
+  margin: 10px;
+  height: 30px;
+  height: 30px;
+}
+
 .inner-box22{
 height: 40px;
 width: 200px;
@@ -249,7 +298,7 @@ position: absolute;
   margin-left: 30px;
   position: absolute;
   margin-top: 2.5px;
-  background-color: gold;
+  background-color: rgb(248, 212, 7);
 }
 
 .fan_text_22{
@@ -293,7 +342,7 @@ position: absolute;
 .inner-box24{
   width: 40px;
   height: 40px;
-  background-color: #FFFFFF;
+  background-color: #FFE4CD;
   margin-left: 300px;
   margin-top: 5px;
   border-radius: 10px;
@@ -315,17 +364,23 @@ position: absolute;
 .inner-box25{
   width: 40px;
   height: 40px;
-  background-color: #FFFFFF;
+  background-color: #FFE4CD;
   margin-left: 300px;
   border-radius: 10px;
   position: absolute;
   margin-top: 52.5px;
 }
 
+.fan-image{
+  width: 30px;
+  height: 30px;
+  align-items: center;
+}
+
 
 .inner-box3 {
-height: 200px;
-background-color:#2a5050;
+height: 170px;
+background-color: #BC8F8F;
 position: relative;
 margin-top: -250px;
 border-radius: 25px;
@@ -334,34 +389,25 @@ border-radius: 25px;
 
 .inner-box4 {
   width: 400px;
-  height: 140px;
-  background-color: #2a5050;
+  height: 300px;
+  background-color: #BC8F8F;
   margin-top: 20px;
+  border-radius: 25px;
   
 
 }
 
-.inner-box6 {
-  width:190px;
-  height: 140px;
-  background-color: #BC8F8F;
-  margin-left: -240px;
-  margin-top: -180px;
-  border-radius: 15px;
+
+.plug{
+  width: 60px;
+  height: 60px;
+  border-radius: 40%;
+  margin: 10px;
+  cursor: pointer;
+  position: relative; /* Ensure position is relative for absolute positioning of the image */
+  overflow: hidden; /* Hide overflow to prevent image from protruding */
+  background-color: #ccc;
 }
-
-.inner-box5 {
-  width: 190px;
-  height: 140px;
-  background-color: #BC8F8F;
-  margin-left: 450px;
-  margin-top: -160px;
-  border-radius: 15px;
-
-}
-
-
-
 .small-boxes {
   display: flex;
   justify-content: center;
@@ -379,10 +425,17 @@ border-radius: 25px;
   height: 80px;
   width: 400px;
   margin: -10px;
-  background-color: #FF8A00;
+  background-color:#AA688A;
   margin-left: 520px;
   margin-top: -100px;
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  
 }
 
 .footer {
@@ -390,4 +443,35 @@ border-radius: 25px;
   color: #fff;
   padding: 30px;
   margin-top: auto;
+}
+
+.footer11{
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 25px;
+}
+
+.but{
+  width: 10px;
+  height: 15px;
+}
+
+
+.box_7 p {
+  margin: 5px 0;
+}
+
+.box_7 p:first-child {
+  font-weight: bold;
+}
+
+.box_7 p:not(:first-child) {
+  font-size: 14px;
+  color: #666;
+}
+
+.box_7 p::before {
+  content: '⏰';
+  margin-right: 5px;
 }

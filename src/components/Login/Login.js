@@ -27,7 +27,7 @@ function Login() {
     signInWithEmailAndPassword(auth, values.email, values.pass)
       .then(async (res) => {
         setSubmitButtonDisabled(false);
-        navigate("/Admin"); // Redirect to AdminPage1 after successful login
+        navigate("/realAdmin"); // Redirect to AdminPage1 after successful login
       })
       .catch((err) => {
         setSubmitButtonDisabled(false);
@@ -72,7 +72,7 @@ function Login() {
           </button>
           <p className={styles.forgetPassword}>
             <span>
-              <Link to="/signup">Foget Password </Link>
+              <Link to="/signup"></Link>
             </span>
           </p>
         </div>
@@ -80,7 +80,7 @@ function Login() {
     </div>
     
     <footer className= {styles.footer1}>
-    <p>Footer content goes here.</p>
+    <p className={styles.footer11}> SMART  X  INDUSTRIES</p>
   </footer>
   </div>
   );

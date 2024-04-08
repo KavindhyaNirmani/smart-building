@@ -1,17 +1,32 @@
-/* Bulb.css */
 .bulb {
-    width: 60px;
-    height: 60px;
-    border-radius: 40%;
-    margin: 10px;
-    cursor: pointer;
-  }
-  
-  .bulb.on {
-    background-color: yellow; /* On color */
-  }
-  
-  .bulb.off {
-    background-color: gray; /* Off color */
-  }
-  
+  width: 60px;
+  height: 60px;
+  border-radius: 40%;
+  margin: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease; /* Add transition for smooth color change */
+  background-color: transparent; /* Initial background color */
+}
+
+.bulb img {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.bulb:hover {
+  background-color: lightgray; /* Change background color on hover */
+}
+
+.bulb.on {
+  background-color: yellow; /* Adjust background color when the bulb is on */
+}
+
+.bulb.off {
+  background-color: gray; /* Adjust background color when the bulb is off */
+}
